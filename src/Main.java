@@ -1,8 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 //        checkBrace("()(()[][{}]){[");
-        System.out.println(toMirrorString("А роза упала на лапу азора"));
-
+//        System.out.println(toMirrorString("А роза упала на лапу азора"));
     }
 
     public static void checkBrace(String string){
@@ -53,7 +52,6 @@ public class Main {
                 }
             }
         }
-
         if (!round.isEmpty())
             System.out.println("( too many ");
         if (!angle.isEmpty())

@@ -70,7 +70,7 @@ public class Array {
 
 //    boolean deleteAll(int value) { // by value
 //        boolean success = false;   //O(N^2)
-//        while (remove(value)) {
+//        while (removeFromHead(value)) {
 //            success = true;
 //        }
 //        return success;

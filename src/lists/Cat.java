@@ -1,3 +1,5 @@
+package lists;
+
 import java.util.Objects;
 
 public class Cat {

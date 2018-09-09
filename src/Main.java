@@ -1,7 +1,32 @@
+import lists.Cat;
+import lists.DoubleLinkedList;
+import lists.DoubleLinkedListIterator;
+
 public class Main {
     public static void main(String[] args) {
 //        checkBrace("()(()[][{}]){[");
 //        System.out.println(toMirrorString("А роза упала на лапу азора"));
+
+        DoubleLinkedList list = new DoubleLinkedList();
+        list.insert(new Cat(12, "Murzik"));
+        list.insert(new Cat(13, "Barsik"));
+        list.insert(new Cat(14, "Kisik"));
+        list.insert(new Cat(15, "Krisik"));
+        list.insert(new Cat(16, "Pisik"));
+
+        DoubleLinkedListIterator iterator = list.getIterator();
+
+        System.out.println(iterator.get());
+        while (iterator.hasNext()){
+            System.out.println(iterator.next().toString());
+        }
+
+        iterator.reset();
+
+        System.out.println(iterator.get());
+        while (iterator.hasNext()){
+            System.out.println(iterator.next().toString());
+        }
     }
 
     public static void checkBrace(String string){

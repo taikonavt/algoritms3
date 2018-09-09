@@ -1,13 +1,16 @@
-import java.util.Iterator;
+package lists;
+
 import java.util.Objects;
 
-public class DoubleLinkedList<T> implements Iterator{
-    private class Node<T> {
+public class DoubleLinkedList<T> {
+    protected class Node<T> {
         T c;
         Node<T> next;
-        Node<T> priv;
+        Node<T> previous;
         public Node(T c) {
             this.c = c;
+            next = null;
+            previous = null;
         }
         @Override
         public String toString() {
@@ -20,13 +23,9 @@ public class DoubleLinkedList<T> implements Iterator{
             Node<T> node = (Node) o;
             return Objects.equals(c, node.c);
         }
-
-        public void setPriv(Node priv){
-            this.priv = priv;
-        }
     }
 
-    private Node<T> head;
+    protected Node<T> head;
 
     public DoubleLinkedList() {
         head = null;
@@ -38,18 +37,11 @@ public class DoubleLinkedList<T> implements Iterator{
 
     public void insert(T c) {
         Node<T> n = new Node<T>(c);
+        if (head != null) {
+            head.previous = n;
+        }
         n.next = head; // if (head == null) n.next = null;
         head = n;
-    }
-
-    @Override
-    public boolean hasNext() {
-        return false;
-    }
-
-    @Override
-    public T next() {
-        return null;
     }
 
     public T remove() {
@@ -102,5 +94,9 @@ public class DoubleLinkedList<T> implements Iterator{
             sb.append((current == null) ? "]" : ", ");
         }
         return sb.toString();
+    }
+
+    public DoubleLinkedListIterator getIterator(){
+        return new DoubleLinkedListIterator(this);
     }
 }
